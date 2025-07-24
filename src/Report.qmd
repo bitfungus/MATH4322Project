@@ -4,7 +4,11 @@ author: "Klarissa Castillo, Paulo Cataquis, Diego Coroando, Cameron Htut, Syrus 
 date: today
 date-format: long
 format:
+#  beamer: 
+#    code-block-border-left: "#245ABE"
+#    highlight-style: github
   pdf:
+#    include-in-header: preamble.tex
     pdf-engine: pdflatex
     documentclass: scrartcl
     colorlinks: true
@@ -47,14 +51,14 @@ library(caret)
 set.seed(123)
 
 
-cwd <- "/home/diego/Downloads/FinalReport" # change this to your cwd where the dataset is in
+cwd <- "/home/diego/Downloads/FinalReport/src" # change this to your cwd where the dataset is in
 df <- read_csv(glue("{cwd}/data/lithium-production.csv")) 
 
 # Postprocessing
 df_global <- df %>%
   group_by(Year) %>%
   summarise(Production = sum(lithium_production_kt, na.rm = TRUE)) %>%
-  filter(Year >=  1995 & Year <= 2024)
+  filter(Year >=  1995 & Year <= 2023)
 
 df_global$Year_c <- df_global$Year - 1995
 ```
@@ -125,16 +129,18 @@ glue("Mean Test RMSE: {mean(rmse_list)}")
 
 ## Tree Based Methods (Cameron, Diego, Syrus)
 
-To explore alternative modeling approaches beyond linear regression, we first considered decision trees. A decision tree recursively splits the data into regions based on threshold values of the predictor. This flexibility allowed the decision tree to capture potential nonlinear patterns that a linear model might miss, even with only one predictor.
+**Decision Trees**
 
-However, a major limitation of decision trees is their instability. Small changes in the data can lead to large changes in the tree structure. This was especially problematic in our dataset, which contained few observations and includes an anomaly in 2024 due to missing U.S. data. This kind of sensitivity often results in overfitting and poor generalization.
+To explore alternative modeling approaches beyond linear regression, we first considered decision trees. A decision tree recursively splits the data into regions based on threshold values of the predictor. The flexibility given by tree-based methods allowed the decision tree to capture nonlinear patterns that a linear model might miss, even with only one predictor.
 
-The following plot shows predicted values vs. actual production, highlighting the model’s step-like predictions that fail to capture the smooth upward trend in production. Additionally, we visualized the cross-validation deviance and resulting pruned tree to demonstrate its instability.
+However, a limitation of decision trees is their instability. Small changes in the data can lead to large changes in the tree structure. This was especially problematic in our dataset, which contained few observations and includes an anomaly in 2024 due to missing U.S. data. This kind of sensitivity often results in overfitting and poor generalization.
+
+The followings plot shows predicted values vs. actual production, that show the model’s step-like predictions that fail to capture the smooth upward trend in production. Additionally, we visualized the cross-validation deviance and resulting pruned tree to demonstrate its instability.
 
 ```{r, echo=FALSE, fig.width=6, fig.height=4, fig.align="center", dpi=300, fig.cap="Decision Tree Predictions vs Actual Production. The model fails to capture smooth trends and introduces abrupt shifts."}
 
 library(tree)
-RMSE = rep(0, 10)
+RMSE_decision_tree = rep(0, 10)
 for (i in 1:10){
   train_idx = sample(1:nrow(df_global), size = 0.8 * nrow(df_global))
   train_data <- df_global[train_idx, ]
@@ -143,7 +149,7 @@ for (i in 1:10){
   tree_model <- tree(Production ~ Year, data = df_global, subset = train_idx)
   
   yhat = predict(tree_model, newdata=test_data)
-  RMSE[i] = sqrt(mean(as.numeric(test_data$Production) - as.numeric(yhat))^2) 
+  RMSE_decision_tree[i] = sqrt(mean(as.numeric(test_data$Production) - as.numeric(yhat))^2) 
 }
 
 ```
@@ -159,39 +165,71 @@ geom_line(aes(y = pred_tree), color = "orange", size = 1) +
 labs(y = "Lithium Production (kilotonnes)",
 title = "Decision Tree Predictions vs Actual") +
 theme_minimal()
+
 ```
 
 ```{r, echo=FALSE, fig.width=6, fig.height=4, fig.align="center", dpi=300, fig.cap="Cross-validation deviance for various tree sizes. Smaller trees may generalize better, but deviance remains high, indicating poor fit."}
-
 cv_tree <- cv.tree(tree_model)
 plot(cv_tree$size, cv_tree$dev, type = "b", ylab = "Deviance", xlab = "Tree Size")
-
 ```
 
 ```{r, echo=FALSE, fig.width=6, fig.height=4, fig.align="center", dpi=300, fig.cap="Pruned decision tree (size = 2). Despite pruning, the model captures only coarse patterns and misses gradual production trends."}
-
 
 pruned_tree <- prune.tree(tree_model, best = 2)
 plot(pruned_tree)
 text(pruned_tree, pretty = 0)
 ```
 
+**Random Forests**
 
-To address these limitations, we used a **Random Forest**, an ensemble method that fits multiple decision trees on different bootstrapped subsets of the data and averages their predictions. This significantly improves model stability while retaining the flexibility to capture nonlinear patterns.
+To address these limitations, we used a *Random Forest*, an ensemble method that fits multiple decision trees on different bootstrapped subsets of the data and averages their predictions. This improves the model's stability while also retaining the flexibility to capture nonlinear patterns.
 
-We trained a random forest model using 5-fold cross-validation with 500 trees (`ntree = 500`). The model outperformed all others in terms of RMSE, suggesting it struck the best balance between flexibility and generalization.
+We trained a Random Forest using 5-fold cross-validation and tested various `ntree` values (number of trees) to find the best trade-off between bias and variance. The optimal model minimized RMSE and produced smooth, accurate predictions, in contrast to the abrupt, unstable predictions of the standalone tree.
 
-```{r}
+
+```{r echo=FALSE, results="hide"}
+# HIDE THIS ITS JUST TO GET THE DATA READY AND NOT SHOW THE CODE BLOCK
+
 train_ctrl <- trainControl(method = "cv", number = 5)
+ntree_vals <- c(100,200,300,400,500,600,700,800,900,1000)
+rmse_vals_ntree <- numeric(length(ntree_vals))
+
+for(i in seq_along(ntree_vals)){
+  rf_tmp <- train(
+    Production ~ Year_c,
+    data = df_global,
+    method = "rf",
+    trControl = trainControl(method = "cv", number = 5),
+    ntree = ntree_vals[i]
+  )
+  rmse_vals_ntree[i] <- min(rf_tmp$results$RMSE)
+}
+
+(rmse_ntree_df <- data.frame(ntree = ntree_vals, RMSE = rmse_vals_ntree))
+
+best_ntree <- rmse_ntree_df[which.min(rmse_ntree_df$RMSE), ]$ntree
 
 rf_model <- train(Production ~ Year_c, data = df_global, method = "rf",
-                  trControl = train_ctrl, ntree = 500)
-rf_model
+                  trControl = train_ctrl, ntree = best_ntree)
+
+df_global$pred_rf <- predict(rf_model, df_global)
+```
+
+```{r, echo=FALSE, fig.width=6, fig.height=4, fig.align="center", fig.cap="Root Mean Squared Error (RMSE) vs Number of Trees in Random Forest. RMSE values fluctuate accross different `nree` settings, with the best performance at 800 trees. This suggesets some instability due to the small dataset, but tuning ntree can still yield performance gains"}
+
+ggplot(rmse_ntree_df, aes(x = ntree, y = RMSE)) +
+  geom_line() +
+  geom_point() +
+  theme_minimal() +
+  labs(
+    x = "Number of Trees (ntree)",
+    y = "RMSE",
+    title = "Tuning Random Forest: ntree vs RMSE"
+  )
 ```
 
 
-```{r}
-df_global$pred_rf <- predict(rf_model, df_global)
+```{r, echo=FALSE, fig.width=6, fig.height=4, fig.align="center", fig.cap="Random Forest Predictions vs. Actual Lithium Production. Compared to the decision tree, this model produces smoother and more accurate estimates of production across years."}
 
 ggplot(df_global, aes(x = Year)) +
   geom_point(aes(y = Production), size = 3) +
@@ -201,14 +239,28 @@ ggplot(df_global, aes(x = Year)) +
     y = "Production (kilotonnes)"
   ) +
   theme_minimal()
-
 ```
+
+
+In summary, while the decision tree provided insight into nonlinear trends, its instability made it a poor-fit model for the dataset that we were using. While, the random forest model retained the interpretability of tree-based methods while offering much greater predictive accuracy. This demonstrated that ensemble methods like random forests are better for capturing smooth, real-world trends in global lithium production. Especially when working with small, noisy datasets such as our case.
 
 # Results
 Results
 
-# Conclusion
-Conclusion
+# Conclusion (Klarissa)
+In conclusion, we can draw attention to our original question and address how world lithium production changes year over year and what we can conclude about future lithium resources. Our analysis of global lithium production from 2019 to 2024 revealed a clear upward trend in annual output, emphasizing lithium’s growing importance as a nonrenewable resource critical to energy storage and electrification technologies. 
+
+
+Using a linear regression model as our primary analytical tool, we have found that production has increased every year with high statistical significance. This model effectively answered our research question and aligned closely with real world expectations of increasing lithium demand. Among the models tested, including decision trees and random forests, the linear regression model offered the most interpretable and actionable insight. The simplicity and clarity of the linear model made it best suited for this small dataset and our research objectives. Its transparent coefficients and consistent performance highlighted a strong, time driven increase in production, which policymakers and industry leaders could use to inform resource planning in regard to economic and environmental strategies.
+
+
+However, we do also acknowledge limitations in our work. The dataset included only six years of data, and these gaps limit long term forecasting precision and make the model sensitive to anomalies such as the dip observed in 2024, which is likely due to incomplete or estimated data rather than a true production drop. 
+
+
+However, our project still reinforces the urgency of addressing lithium’s finite availability and suggests that predictive modeling, even with limited data, can inform environmental and economic policy decisions regarding critical minerals. 
+
+
+Overall, the conclusion about our dataset of choice can draw focus on the economic and environmental impacts of lithium production and depletion. As a finite, nonrenewable resource, lithium has a growing demand for electric vehicles, energy storage and consumer electronics. Our analysis shows that production has steadily increased year over year, highlighting lithium’s rising market value and importance. This upward trend also raises concerns about long term resource scarcity and the ecological consequences of expanded mining. These findings emphasize the need for sustainable extraction practices, investment in recycling technologies, and exploration of alternative materials. 
 
 # References
 

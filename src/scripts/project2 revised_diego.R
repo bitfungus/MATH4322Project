@@ -6,7 +6,7 @@
 
 
 # set working directory where the csv data is at
-setwd("/home/diego/temp/")
+setwd("/home/diego/Downloads/FinalReport/src")
 
 # Read the CSV data
 library(tidyverse)
