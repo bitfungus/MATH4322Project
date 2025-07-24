@@ -1,0 +1,541 @@
+Entity,Code,Year,lithium_production_kt
+Argentina,ARG,1995,8
+Argentina,ARG,1996,8
+Argentina,ARG,1997,8
+Argentina,ARG,1998,1130
+Argentina,ARG,1999,200
+Argentina,ARG,2000,200
+Argentina,ARG,2001,200
+Argentina,ARG,2002,946
+Argentina,ARG,2003,960
+Argentina,ARG,2004,1970
+Argentina,ARG,2005,1980
+Argentina,ARG,2006,2900
+Argentina,ARG,2007,3000
+Argentina,ARG,2008,3170
+Argentina,ARG,2009,2220
+Argentina,ARG,2010,2950
+Argentina,ARG,2011,2950
+Argentina,ARG,2012,2700
+Argentina,ARG,2013,2500
+Argentina,ARG,2014,3200
+Argentina,ARG,2015,3600
+Argentina,ARG,2016,5800
+Argentina,ARG,2017,5700
+Argentina,ARG,2018,6400
+Argentina,ARG,2019,6300
+Argentina,ARG,2020,5900
+Argentina,ARG,2021,5966.9123
+Argentina,ARG,2022,6377.9364000000005
+Argentina,ARG,2023,8630
+Argentina,ARG,2024,18000
+Asia,,1995,320
+Asia,,1996,2800
+Asia,,1997,2900
+Asia,,1998,3000
+Asia,,1999,2300
+Asia,,2000,2400
+Asia,,2001,2400
+Asia,,2002,2400
+Asia,,2003,2500
+Asia,,2004,2630
+Asia,,2005,2820
+Asia,,2006,2820
+Asia,,2007,3010
+Asia,,2008,3290
+Asia,,2009,3760
+Asia,,2010,3950
+Asia,,2011,4140
+Asia,,2012,4500
+Asia,,2013,4700
+Asia,,2014,2300
+Asia,,2015,2000
+Asia,,2016,2300
+Asia,,2017,6800
+Asia,,2018,7100
+Asia,,2019,10800
+Asia,,2020,13300
+Asia,,2021,14000
+Asia,,2022,22600
+Asia,,2023,35700
+Asia,,2024,41000
+Australia,AUS,1995,2233.4814
+Australia,AUS,1996,3882.1355999999996
+Australia,AUS,1997,1576.6063
+Australia,AUS,1998,1179.9950999999999
+Australia,AUS,1999,1505.7013
+Australia,AUS,2000,1825.6938
+Australia,AUS,2001,2225.7889999999998
+Australia,AUS,2002,2204.2165
+Australia,AUS,2003,3500
+Australia,AUS,2004,3301.4052
+Australia,AUS,2005,4839.464999999999
+Australia,AUS,2006,6190.2847
+Australia,AUS,2007,6836.29
+Australia,AUS,2008,6676.0015
+Australia,AUS,2009,5504.1165
+Australia,AUS,2010,8465.379
+Australia,AUS,2011,11700
+Australia,AUS,2012,12700
+Australia,AUS,2013,10117.35
+Australia,AUS,2014,12374.94
+Australia,AUS,2015,11928.996
+Australia,AUS,2016,14000
+Australia,AUS,2017,21300
+Australia,AUS,2018,57000
+Australia,AUS,2019,45000
+Australia,AUS,2020,39700
+Australia,AUS,2021,55300
+Australia,AUS,2022,74700
+Australia,AUS,2023,91700
+Australia,AUS,2024,88000
+Brazil,BRA,1995,32
+Brazil,BRA,1996,32
+Brazil,BRA,1997,32
+Brazil,BRA,1998,32
+Brazil,BRA,1999,32
+Brazil,BRA,2000,30
+Brazil,BRA,2001,220
+Brazil,BRA,2002,224
+Brazil,BRA,2003,240
+Brazil,BRA,2004,242
+Brazil,BRA,2005,242
+Brazil,BRA,2006,242
+Brazil,BRA,2007,180
+Brazil,BRA,2008,160
+Brazil,BRA,2009,160
+Brazil,BRA,2010,160
+Brazil,BRA,2011,320
+Brazil,BRA,2012,150
+Brazil,BRA,2013,400
+Brazil,BRA,2014,160
+Brazil,BRA,2015,147.69797
+Brazil,BRA,2016,224.93218000000002
+Brazil,BRA,2017,269.46384
+Brazil,BRA,2018,1047.5034
+Brazil,BRA,2019,2171.6533
+Brazil,BRA,2020,1420
+Brazil,BRA,2021,1700
+Brazil,BRA,2022,2630
+Brazil,BRA,2023,5260
+Brazil,BRA,2024,10000
+Chile,CHL,1995,2000
+Chile,CHL,1996,2663.6677
+Chile,CHL,1997,4554.5335
+Chile,CHL,1998,5462.648999999999
+Chile,CHL,1999,5705.1554
+Chile,CHL,2000,6737.877
+Chile,CHL,2001,5883.362
+Chile,CHL,2002,6620.0967
+Chile,CHL,2003,7827.012500000001
+Chile,CHL,2004,8340.688999999998
+Chile,CHL,2005,8205.998
+Chile,CHL,2006,8877.119
+Chile,CHL,2007,10320.197
+Chile,CHL,2008,9818.884
+Chile,CHL,2009,5117.530000000001
+Chile,CHL,2010,8879.804999999998
+Chile,CHL,2011,11890.828000000001
+Chile,CHL,2012,12325.488
+Chile,CHL,2013,10505.053
+Chile,CHL,2014,10834.172
+Chile,CHL,2015,9809.592
+Chile,CHL,2016,13595.976
+Chile,CHL,2017,14233.599
+Chile,CHL,2018,16974.504
+Chile,CHL,2019,19241.287
+Chile,CHL,2020,21630.358
+Chile,CHL,2021,28242
+Chile,CHL,2022,48821.04
+Chile,CHL,2023,48098.717000000004
+Chile,CHL,2024,56928.432
+China,CHN,1995,320
+China,CHN,1996,2800
+China,CHN,1997,2900
+China,CHN,1998,3000
+China,CHN,1999,2300
+China,CHN,2000,2400
+China,CHN,2001,2400
+China,CHN,2002,2400
+China,CHN,2003,2500
+China,CHN,2004,2630
+China,CHN,2005,2820
+China,CHN,2006,2820
+China,CHN,2007,3010
+China,CHN,2008,3290
+China,CHN,2009,3760
+China,CHN,2010,3950
+China,CHN,2011,4140
+China,CHN,2012,4500
+China,CHN,2013,4700
+China,CHN,2014,2300
+China,CHN,2015,2000
+China,CHN,2016,2300
+China,CHN,2017,6800
+China,CHN,2018,7100
+China,CHN,2019,10800
+China,CHN,2020,13300
+China,CHN,2021,14000
+China,CHN,2022,22600
+China,CHN,2023,35700
+China,CHN,2024,41000
+Europe,,1995,160
+Europe,,1996,160
+Europe,,1997,180
+Europe,,1998,160
+Europe,,1999,222.92999999999998
+Europe,,2000,140.28
+Europe,,2001,173.565
+Europe,,2002,244.875
+Europe,,2003,369.09
+Europe,,2004,430.44
+Europe,,2005,392.775
+Europe,,2006,427.45933
+Europe,,2007,521.32004
+Europe,,2008,523.3165600000001
+Europe,,2009,560.384
+Europe,,2010,601.635
+Europe,,2011,563.0118
+Europe,,2012,310.47
+Europe,,2013,299.10179999999997
+Europe,,2014,261.885
+Europe,,2015,256.79928
+Europe,,2016,386.37
+Europe,,2017,761.1492
+Europe,,2018,1152.2738
+Europe,,2019,898.67806
+Europe,,2020,347.775
+Europe,,2021,900
+Europe,,2022,380
+Europe,,2023,380
+Europe,,2024,380
+High-income countries,,1995,7893.4813
+High-income countries,,1996,10705.803
+High-income countries,,1997,10311.14
+High-income countries,,1998,8302.644
+High-income countries,,1999,8933.786
+High-income countries,,2000,10203.851
+High-income countries,,2001,9782.716
+High-income countries,,2002,10569.188
+High-income countries,,2003,13196.101999999999
+High-income countries,,2004,13572.534
+High-income countries,,2005,14938.238
+High-income countries,,2006,16994.864
+High-income countries,,2007,19177.807
+High-income countries,,2008,18518.201999999997
+High-income countries,,2009,12682.031
+High-income countries,,2010,18946.82
+High-income countries,,2011,25153.84
+High-income countries,,2012,26335.958000000002
+High-income countries,,2013,21791.504
+High-income countries,,2014,24370.996000000003
+High-income countries,,2015,22895.388
+High-income countries,,2016,28882.345
+High-income countries,,2017,37194.748
+High-income countries,,2018,76026.78
+High-income countries,,2019,66039.95999999999
+High-income countries,,2020,62578.133
+High-income countries,,2021,85381.23
+High-income countries,,2022,124515.945
+High-income countries,,2023,140793.62
+High-income countries,,2024,146228.99000000002
+Lower-middle-income countries,,1995,520
+Lower-middle-income countries,,1996,500
+Lower-middle-income countries,,1997,700
+Lower-middle-income countries,,1998,1000
+Lower-middle-income countries,,1999,700
+Lower-middle-income countries,,2000,740
+Lower-middle-income countries,,2001,700
+Lower-middle-income countries,,2002,640
+Lower-middle-income countries,,2003,480
+Lower-middle-income countries,,2004,240
+Lower-middle-income countries,,2005,260
+Lower-middle-income countries,,2006,600
+Lower-middle-income countries,,2007,300
+Lower-middle-income countries,,2008,500
+Lower-middle-income countries,,2009,400
+Lower-middle-income countries,,2010,470
+Lower-middle-income countries,,2011,470
+Lower-middle-income countries,,2012,1060
+Lower-middle-income countries,,2013,1000
+Lower-middle-income countries,,2014,900
+Lower-middle-income countries,,2015,900
+Lower-middle-income countries,,2016,1000
+Lower-middle-income countries,,2017,800
+Lower-middle-income countries,,2018,1600
+Lower-middle-income countries,,2019,1200
+Lower-middle-income countries,,2020,417
+Lower-middle-income countries,,2021,710
+Lower-middle-income countries,,2022,1030
+Lower-middle-income countries,,2023,14900
+Lower-middle-income countries,,2024,22000
+North America,,1995,3500
+North America,,1996,4000
+North America,,1997,4000
+North America,,1998,1500
+North America,,1999,1500
+North America,,2000,1500
+North America,,2001,1500
+North America,,2002,1500
+North America,,2003,1500
+North America,,2004,1500
+North America,,2005,1500
+North America,,2006,1500
+North America,,2007,1500
+North America,,2008,1500
+North America,,2009,1500
+North America,,2010,1000
+North America,,2011,1000
+North America,,2012,1000
+North America,,2013,870
+North America,,2014,900
+North America,,2015,900
+North America,,2016,900
+North America,,2017,900
+North America,,2018,900
+North America,,2019,900
+North America,,2020,900
+North America,,2021,939.234
+North America,,2022,614.9077
+North America,,2023,614.9077
+North America,,2024,920.563
+Oceania,,1995,2233.4814
+Oceania,,1996,3882.1355999999996
+Oceania,,1997,1576.6063
+Oceania,,1998,1179.9950999999999
+Oceania,,1999,1505.7013
+Oceania,,2000,1825.6938
+Oceania,,2001,2225.7889999999998
+Oceania,,2002,2204.2165
+Oceania,,2003,3500
+Oceania,,2004,3301.4052
+Oceania,,2005,4839.464999999999
+Oceania,,2006,6190.2847
+Oceania,,2007,6836.29
+Oceania,,2008,6676.0015
+Oceania,,2009,5504.1165
+Oceania,,2010,8465.379
+Oceania,,2011,11700
+Oceania,,2012,12700
+Oceania,,2013,10117.35
+Oceania,,2014,12374.94
+Oceania,,2015,11928.996
+Oceania,,2016,14000
+Oceania,,2017,21300
+Oceania,,2018,57000
+Oceania,,2019,45000
+Oceania,,2020,39700
+Oceania,,2021,55300
+Oceania,,2022,74700
+Oceania,,2023,91700
+Oceania,,2024,88000
+Portugal,PRT,1995,160
+Portugal,PRT,1996,160
+Portugal,PRT,1997,180
+Portugal,PRT,1998,160
+Portugal,PRT,1999,222.92999999999998
+Portugal,PRT,2000,140.28
+Portugal,PRT,2001,173.565
+Portugal,PRT,2002,244.875
+Portugal,PRT,2003,369.09
+Portugal,PRT,2004,430.44
+Portugal,PRT,2005,392.775
+Portugal,PRT,2006,427.45933
+Portugal,PRT,2007,521.32004
+Portugal,PRT,2008,523.3165600000001
+Portugal,PRT,2009,560.384
+Portugal,PRT,2010,601.635
+Portugal,PRT,2011,563.0118
+Portugal,PRT,2012,310.47
+Portugal,PRT,2013,299.10179999999997
+Portugal,PRT,2014,261.885
+Portugal,PRT,2015,256.79928
+Portugal,PRT,2016,386.37
+Portugal,PRT,2017,761.1492
+Portugal,PRT,2018,1152.2738
+Portugal,PRT,2019,898.67806
+Portugal,PRT,2020,347.775
+Portugal,PRT,2021,900
+Portugal,PRT,2022,380
+Portugal,PRT,2023,380
+Portugal,PRT,2024,380
+Rest of World (EI),,1995,712
+Rest of World (EI),,1996,738
+Rest of World (EI),,1997,1640
+Rest of World (EI),,1998,728
+Rest of World (EI),,1999,710
+Rest of World (EI),,2000,710
+Rest of World (EI),,2001,700
+Rest of World (EI),,2002,707
+Rest of World (EI),,2003,710
+Rest of World (EI),,2004,707
+Rest of World (EI),,2005,707
+Rest of World (EI),,2006,707
+Rest of World (EI),,2007,707
+Rest of World (EI),,2008,690
+Rest of World (EI),,2009,310
+Rest of World (EI),,2010,0
+Rest of World (EI),,2011,0
+Rest of World (EI),,2012,0
+Rest of World (EI),,2013,0
+Rest of World (EI),,2014,20.287454
+Rest of World (EI),,2015,0
+Rest of World (EI),,2016,10
+Rest of World (EI),,2017,86
+Rest of World (EI),,2018,2960
+Rest of World (EI),,2019,410
+Rest of World (EI),,2020,90
+Rest of World (EI),,2021,101.51804
+Rest of World (EI),,2022,655.82633
+Rest of World (EI),,2023,6128.0627
+Rest of World (EI),,2024,7407.8035
+South America,,1995,2040
+South America,,1996,2703.6676
+South America,,1997,4594.5334
+South America,,1998,6624.648999999999
+South America,,1999,5937.1552
+South America,,2000,6967.8769999999995
+South America,,2001,6303.362
+South America,,2002,7790.096799999999
+South America,,2003,9027.013
+South America,,2004,10552.689
+South America,,2005,10427.999
+South America,,2006,12019.119
+South America,,2007,13500.197
+South America,,2008,13148.884
+South America,,2009,7497.530000000001
+South America,,2010,11989.804
+South America,,2011,15160.829
+South America,,2012,15175.488
+South America,,2013,13405.052
+South America,,2014,14194.172
+South America,,2015,13557.29
+South America,,2016,19620.909
+South America,,2017,20203.061999999998
+South America,,2018,24422.009
+South America,,2019,27712.94
+South America,,2020,28950.357
+South America,,2021,35908.913
+South America,,2022,57828.98
+South America,,2023,61988.71599999999
+South America,,2024,84928.43999999999
+United States,USA,1995,3500
+United States,USA,1996,4000
+United States,USA,1997,4000
+United States,USA,1998,1500
+United States,USA,1999,1500
+United States,USA,2000,1500
+United States,USA,2001,1500
+United States,USA,2002,1500
+United States,USA,2003,1500
+United States,USA,2004,1500
+United States,USA,2005,1500
+United States,USA,2006,1500
+United States,USA,2007,1500
+United States,USA,2008,1500
+United States,USA,2009,1500
+United States,USA,2010,1000
+United States,USA,2011,1000
+United States,USA,2012,1000
+United States,USA,2013,870
+United States,USA,2014,900
+United States,USA,2015,900
+United States,USA,2016,900
+United States,USA,2017,900
+United States,USA,2018,900
+United States,USA,2019,900
+United States,USA,2020,900
+United States,USA,2021,939.234
+United States,USA,2022,614.9077
+United States,USA,2023,614.9077
+United States,USA,2024,920.563
+Upper-middle-income countries,,1995,359.99998
+Upper-middle-income countries,,1996,2840
+Upper-middle-income countries,,1997,2940
+Upper-middle-income countries,,1998,4162
+Upper-middle-income countries,,1999,2532
+Upper-middle-income countries,,2000,2630
+Upper-middle-income countries,,2001,2820.0002
+Upper-middle-income countries,,2002,3570.0002
+Upper-middle-income countries,,2003,3700
+Upper-middle-income countries,,2004,4842
+Upper-middle-income countries,,2005,5042
+Upper-middle-income countries,,2006,5962
+Upper-middle-income countries,,2007,6190
+Upper-middle-income countries,,2008,6620
+Upper-middle-income countries,,2009,6140
+Upper-middle-income countries,,2010,7060
+Upper-middle-income countries,,2011,7410
+Upper-middle-income countries,,2012,7350
+Upper-middle-income countries,,2013,7600
+Upper-middle-income countries,,2014,5660
+Upper-middle-income countries,,2015,5747.697999999999
+Upper-middle-income countries,,2016,8324.932
+Upper-middle-income countries,,2017,12769.464
+Upper-middle-income countries,,2018,14547.503
+Upper-middle-income countries,,2019,19271.654000000002
+Upper-middle-income countries,,2020,20620
+Upper-middle-income countries,,2021,21666.912
+Upper-middle-income countries,,2022,31607.936999999998
+Upper-middle-income countries,,2023,49590
+Upper-middle-income countries,,2024,69000
+World,OWID_WRL,1995,9485.481
+World,OWID_WRL,1996,14783.804
+World,OWID_WRL,1997,15591.14
+World,OWID_WRL,1998,14192.644
+World,OWID_WRL,1999,12875.787
+World,OWID_WRL,2000,14283.851
+World,OWID_WRL,2001,14002.716
+World,OWID_WRL,2002,15486.188
+World,OWID_WRL,2003,18086.103000000003
+World,OWID_WRL,2004,19361.534
+World,OWID_WRL,2005,20947.239
+World,OWID_WRL,2006,24263.863
+World,OWID_WRL,2007,26374.807
+World,OWID_WRL,2008,26328.201
+World,OWID_WRL,2009,19532.03
+World,OWID_WRL,2010,26476.818000000003
+World,OWID_WRL,2011,33033.84
+World,OWID_WRL,2012,34745.956
+World,OWID_WRL,2013,30391.504
+World,OWID_WRL,2014,30951.284
+World,OWID_WRL,2015,29543.085000000003
+World,OWID_WRL,2016,38217.278
+World,OWID_WRL,2017,50850.212
+World,OWID_WRL,2018,95134.28
+World,OWID_WRL,2019,86921.616
+World,OWID_WRL,2020,83705.12999999999
+World,OWID_WRL,2021,107859.66500000001
+World,OWID_WRL,2022,157809.71
+World,OWID_WRL,2023,211411.68
+World,OWID_WRL,2024,244636.8
+Zimbabwe,ZWE,1995,520
+Zimbabwe,ZWE,1996,500
+Zimbabwe,ZWE,1997,700
+Zimbabwe,ZWE,1998,1000
+Zimbabwe,ZWE,1999,700
+Zimbabwe,ZWE,2000,740
+Zimbabwe,ZWE,2001,700
+Zimbabwe,ZWE,2002,640
+Zimbabwe,ZWE,2003,480
+Zimbabwe,ZWE,2004,240
+Zimbabwe,ZWE,2005,260
+Zimbabwe,ZWE,2006,600
+Zimbabwe,ZWE,2007,300
+Zimbabwe,ZWE,2008,500
+Zimbabwe,ZWE,2009,400
+Zimbabwe,ZWE,2010,470
+Zimbabwe,ZWE,2011,470
+Zimbabwe,ZWE,2012,1060
+Zimbabwe,ZWE,2013,1000
+Zimbabwe,ZWE,2014,900
+Zimbabwe,ZWE,2015,900
+Zimbabwe,ZWE,2016,1000
+Zimbabwe,ZWE,2017,800
+Zimbabwe,ZWE,2018,1600
+Zimbabwe,ZWE,2019,1200
+Zimbabwe,ZWE,2020,417
+Zimbabwe,ZWE,2021,710
+Zimbabwe,ZWE,2022,1030
+Zimbabwe,ZWE,2023,14900
+Zimbabwe,ZWE,2024,22000
