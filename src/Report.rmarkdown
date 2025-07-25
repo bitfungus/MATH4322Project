@@ -38,7 +38,6 @@ packages:
   - glue
 ---
 
-
 ```{r include=FALSE, echo=FALSE, results='hide'}
 # THIS IS TO LOAD THE DATA STUFF TO NOT NECESSARILY INCLUDE INTO OUR REPORT BUT RATHER
 # TO MAKE THE PLOT RENDERINGS WORK
@@ -66,6 +65,8 @@ df_global$Year_c <- df_global$Year - 2019
 
 
 
+
+
 # Introduction (Paulo, Cameron)
 There are a lot of resources on Earth for energy applications and storage, but not many can also be applied to medicine or textiles. One that stands prevalent is lithium, a non-renewable metal resource. With the majority of lithium products being batteries for cars, electronics, and energy storage, as well as medication for bipolar disorders, lithium serves a multitude of applications. In the past couple decades, due to its various applications, the supply, demand, and consumption of lithium have soared. Due to its finite nature, we ask ourselves, how has global production for this commodity changed annually, and what can we infer about future lithium production?  
 
@@ -84,6 +85,8 @@ alongside other U.S.-specific import/export metrics. For this report, we focused
 
 
 
+
+
 ```{=latex}
 \begin{center}
 
@@ -93,6 +96,8 @@ How has total world lithium production changed year over year?
 
 \end{center}
 ```
+
+
 
 # Methods (Paulo, Klarissa, Cameron, Diego, Syrus)
 
@@ -107,6 +112,8 @@ $$
 $$
 
 We considered only one feature: `Year_c`. Additional features like price, country reserves, or imports were excluded because the dataset has only six features, and adding more variables would drastically increase the risk of overfitting. Our goal was to assess the trend in global production, not build a multivariate explanatory model. Including more predictors would have required testing their p-values for significance, and with such a small sample size, those values would likely be unstable and unreliable. Thus, linear regression with a single predictor was the most appropriate approach for our research question and data limitations.
+
+
 
 ```{r}
 rmse_lm = rep(0, 10)
@@ -125,7 +132,11 @@ for (i in 1:10){
 }
 ```
 
+
+
 In each iteration, we randomly selected 80% of the data to serve as the training set and used the remaining 20% as the test set. The model was fit on the training data using the formula $\hat{y} = \beta_0 + \beta_1 \cdot \text{Year}\_c$ which predicts global lithium production based solely on the centered year variable. After training the model, we generated predictions for the test set and calculated the root mean squared error (RMSE) between the predicted and actual production values. This process was repeated across 10 different random splits, and we recorded the RMSE from each run. We used a fixed random seed (`set.seed(123)`) to ensure reproducibility of the results. This approach provided a robust estimate of how well the model generalizes to unseen data while mitigating the randomness associated with a single split. The average test RMSE across the 10 iterations was approximately 82,649.16 kilotons, suggesting that the model’s typical prediction error is around 82,649.16 kilotons. Given the very small size of the dataset (n = 6) and the presence of an outlier in the 2024 estimate, this result is acceptable and demonstrates the model’s capacity to capture the general trend in lithium production over time. 
+
+
 
 ```{r results="hide", echo=FALSE}
 train_ctrl <- trainControl(method = "cv", number = 5)
@@ -134,6 +145,8 @@ lm_model <- train(Production ~ Year_c,
                 method = "lm",
                 trControl = train_ctrl)
 ```
+
+
 
 ## Tree Based Methods (Cameron, Diego, Syrus)
 
@@ -148,6 +161,8 @@ $$
 $$
 
 This method is flexible, however, a limitation of decision trees is their instability. Small changes in the data can lead to large changes in the tree structure. This was especially problematic in our dataset, which contained few observations $(n=6)$ and includes an anomaly in 2024 due to missing U.S. data. This kind of sensitivity often results in poor generalization.
+
+
 
 ```{r}
 library(tree)
@@ -166,6 +181,8 @@ for (i in 1:10){
 mean(RMSE_decision_tree)
 ```
 
+
+
 Each model was trained on 80% of the data and tested on the remaining 20%, and this was repeated 10 times with `set.seed()` to have reproducibility. We collected the RMSE at each iteration to assess prediction accuracy.
 
 **Random Forests**
@@ -181,6 +198,8 @@ $$
 This improves the model's stability and predictive accuracy while also retaining the flexibility to capture nonlinear patterns. 
 
 We trained a random forest using 5-fold cross-validation and tested various `ntree` values (number of trees) from 100 to 1000 (step 100) to find the best trade-off between bias and variance. We trained the model and recorded RMSE. The best value was selected based on minimum average RMSE.
+
+
 
 ```{r}
 train_ctrl <- trainControl(method = "cv", number = 5)
@@ -201,7 +220,11 @@ for(i in seq_along(ntree_vals)){
 (rmse_ntree_df <- data.frame(ntree = ntree_vals, RMSE = rmse_vals_ntree))
 ```
 
+
+
 The final random forest model was trained using this optimal `ntree` and evaluated on each of the same 10 training/testing splits as used for the decision tree and linear regression, for fair comparison.
+
+
 
 ```{r}
 RMSE_rf_optimized_ntree = rep(0, 10)
@@ -226,6 +249,8 @@ rf_model <- train(Production ~ Year_c, data = df_global, method = "rf",
                   trControl = train_ctrl, ntree = best_ntree)
 ```
 
+
+
 **Why We Chose Random Forests over Decision Trees**
 
 While the decision tree provided some insight into potential nonlinear patterns, its performance was hindered by its instability and tendency to underfit.
@@ -238,39 +263,55 @@ The random forest, on the other hand, retained the interpretability of tree-base
 
 To evaluate how global lithium production has changed year over year, we fit and compared two models: a linear regression model and a random forest model. Both models used the centered year variable (`Year_c`) as the sole predictor of global lithium production.
 
+
+
 ```{r}
 summary(lm_model)
 ```
 
+
+
 The linear regression model followed the formula `Production ~ Year_c`, where `Year_c` is the calendar year centered at 2019. When fit to the full dataset, the model produced an intercept of 252,434 kilotonnes, representing the estimated global production in 2019. The coefficient for `Year_c` was 132,328 kilotonnes, meaning that on average, lithium production increased by approximately 132,328 kilotonnes per year. This coefficient was statistically significant, with a p-value of 0.00162 confirming a strong relationship between year and production.
+
+
 
 ```{r}
 mean(rmse_lm)
 ```
+
+
 
 To evaluate the model’s predictive accuracy, we conducted a randomized 80/20 train-test split repeated 10 times. In each iteration, the model was trained on 80% of the data and evaluated on the remaining 20%. The mean root mean squared error (RMSE) across the 10 iterations was approximately 82,649 kilotonnes. This result suggests the model’s typical prediction error when generalized to new, unseen data is reasonable given the small dataset size (n = 6). The model’s simplicity and statistical strength make it a solid baseline for assessing long-term production trends.
 
 
 We then fit a random forest using the same formula, `Production ~ Year_c`, to explore potential nonlinear patterns in the data. We first optimized the number of trees (ntree) using 5-fold cross-validation over a range from 100 to 1000. The lowest cross-validated RMSE occurred at ntree = 1000, with an associated RMSE of 120,533 kilotonnes.
 
+
+
 ```{r}
 mean(RMSE_rf_optimized_ntree)
 ```
 
+
+
 Using this optimal tree count, we retrained the random forest model on 10 different 80/20 train-test splits to keep it consistent on how we trained the linear model. The mean test RMSE for the random forest model was 151,007 kilotonnes. 
+
+
 
 ```{r}
 final_rf_model <- randomForest(Production ~ ., data = df_global, ntree = best_ntree)
 importance(final_rf_model)
 ```
 
+
+
 While this error is higher than the linear regression's, the random forest model offers improved flexibility and adaptability to anomalies in the data. After finalizing the model, we trained it on the full dataset to obtain global predictions and evaluate variable importance. As expected, Year_c was the only predictor used and had an `IncNodePurity` of 244,881,192,186, indicating its strong role in the model.
+
+
 
 ```{r results="hide", echo=FALSE}
 resamps <- resamples(list(LM = lm_model, RF = rf_model))
 ```
-
-
 
 ```{r echo=FALSE}
 df_global$pred_lm <- predict(lm_model, df_global)
@@ -290,7 +331,11 @@ ggplot(df_global, aes(x = Year)) +
 
 ```
 
+
+
 To visually compare the models, we plotted the actual global lithium production values against each model's predicted values. The linear regression model produced a smooth upward trend consistent with the observed increase in production, while the random forest model showed a slight curvature that better accounted for the anomaly in 2024. Both models tracked the trend closely, but the random forest's flexibility allowed it to deviate from the strict linearity where appropriate.
+
+
 
 
 
@@ -314,6 +359,8 @@ ggplot(cv_df, aes(x = Model, y = RMSE, fill = Model)) +
   theme_minimal() +
   theme(legend.position = "none")
 ```
+
+
 
 Additionally, we generated a box plot comparing each model's RMSE across 5-fold cross-validation. This visualization showed that although the linear regression model had a tighter RMSE distribution, the random forest model had more variability, reflecting its sensitivity to the small sample size and outlier behavior.
 
@@ -356,6 +403,7 @@ Global Lithium Production:Energy Institute - Statistical Review of World Energy 
 “Statistical Review of World Energy” [original data]. Retrieved July 20, 2025 from
 https://archive.ourworldindata.org/20250717-120101/grapher/lithium-production.html (archived
 on July 17, 2025).
+
 
 
 
